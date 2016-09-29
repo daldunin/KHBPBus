@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="KHBPbus.EditShuttle"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KHBPbus"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="AddBusHeaderText" HorizontalAlignment="Left" Margin="30,25,0,0" TextWrapping="Wrap" Text="Add New Shuttle" VerticalAlignment="Top" FontSize="21.333" FontWeight="Bold"/>
+        <TextBlock x:Name="PickTimeText" HorizontalAlignment="Left" Margin="30,90,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBlock x:Name="PickDaysText" HorizontalAlignment="Left" Margin="30,190,0,0" TextWrapping="Wrap" Text="Days" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBlock x:Name="PickBusStopText" HorizontalAlignment="Left" Margin="30,355,0,0" TextWrapping="Wrap" Text="Bus Stop" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TimePicker x:Name="ArrivalTimePicker" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="MondayCheckBox" Content="Monday" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
+        <CheckBox x:Name="TuesdayCheckBox" Content="Tuesday" HorizontalAlignment="Left" Margin="30,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
+        <CheckBox x:Name="WednesdeyCheckBox" Content="Wednesday" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
+        <CheckBox x:Name="ThursdayCheckBox" Content="Thursday" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
+        <CheckBox x:Name="FridayCheckBox" Content="Friday" HorizontalAlignment="Left" Margin="175,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
+        <CheckBox x:Name="SaturdayCheckBox" Content="Saturday" HorizontalAlignment="Left" Margin="175,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094"/>
+        <CheckBox x:Name="SundayCheckBox" Content="Sunday" HorizontalAlignment="Left" Margin="175,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094"/>
+        <ComboBox x:Name="BusStopComboBox" HorizontalAlignment="Left" Margin="30,385,0,0" VerticalAlignment="Top" Width="130" Height="35" SelectedIndex="0">
+            <ComboBoxItem Content="Polejaevskaya"/>
+            <ComboBoxItem Content="Sokol"/>
+        </ComboBox>
+        <Button x:Name="AddButton" Content="Save" HorizontalAlignment="Left" Margin="30,450,0,0" VerticalAlignment="Top" Width="130" Click="SaveButtonClick"/>
+        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Margin="200,450,0,0" VerticalAlignment="Top" Width="130" Click="button_Copy_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="200,355,0,0" TextWrapping="Wrap" Text="Direction" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="DirectionComboBox" HorizontalAlignment="Left" Margin="200,385,0,0" VerticalAlignment="Top" Width="130" Height="35" SelectedIndex="0">
+            <ComboBoxItem Content="To KHPB"/>
+            <ComboBoxItem Content="From KHBP"/>
+        </ComboBox>
+    </Grid>
+</Page>
