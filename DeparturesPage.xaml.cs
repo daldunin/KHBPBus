@@ -118,7 +118,6 @@ namespace KHBPbus
 
         private void CommandInvokedHandler(IUICommand command)
         {
-            // Display message showing the label of the command that was invoked
             if (command.Label == "Yes")
             {
 

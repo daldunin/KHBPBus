@@ -51,21 +51,26 @@ namespace KHBPbus
         private List<Shuttle> SearchForShuttles()
         {
             List<Shuttle> found = new List<Shuttle>();
-            if (BusStopComboBox.SelectionBoxItem != null && DayComboBox.SelectionBoxItem != null)
-                foreach (Shuttle arrival in Schedule.Arrivals)
+            if (BusStopComboBox != null && DayComboBox != null)
+            {
+                var day = (DayComboBox as ComboBox).SelectedValue as ComboBoxItem;
+                var busStop = (BusStopComboBox as ComboBox).SelectedValue as ComboBoxItem;
+
+                foreach (Shuttle departure in Schedule.Arrivals)
                 {
-                    if (arrival.Direction == "To KHBP" && arrival.BusStop == BusStopComboBox.SelectionBoxItem.ToString())
+                    if (departure.Direction == "To KHBP" && departure.BusStop == busStop.Content.ToString())
                     {
-                        if (arrival.isActiveOnDay(DayComboBox.SelectionBoxItem.ToString()))
-                            found.Add(arrival);
+                        if (departure.isActiveOnDay(day.Content.ToString()))
+                            found.Add(departure);
                     }
                 }
+            }
             return found;
         }
 
         private void ShowFoundShuttles(List<Shuttle> arrivalsToShow)
         {
-            DeparturesListView.Items.Clear();
+            ArrivalsListView.Items.Clear();
             IEnumerable<Shuttle> sortedArrivals =
                 from arrival in arrivalsToShow
                 orderby arrival.Time // "ascending" is default
@@ -74,7 +79,7 @@ namespace KHBPbus
             //departuresToShow.OrderBy(shuttle => shuttle);
             foreach (Shuttle arrival in sortedArrivals)
             {
-                DeparturesListView.Items.Add(arrival.Time.ToString(@"hh\:mm"));
+                ArrivalsListView.Items.Add(arrival.Time.ToString(@"hh\:mm"));
             }
         }
 
@@ -130,7 +135,6 @@ namespace KHBPbus
 
         private void CommandInvokedHandler(IUICommand command)
         {
-            // Display message showing the label of the command that was invoked
             if (command.Label == "Yes")
             {
 

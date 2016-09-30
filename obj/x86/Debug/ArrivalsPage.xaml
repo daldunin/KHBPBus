@@ -13,7 +13,7 @@
         <Button x:ConnectionId='3' x:Name="AddButton" Content="Add Shuttle" HorizontalAlignment="Left" Margin="30,500,0,0" VerticalAlignment="Top" Height="50" Width="290" RenderTransformOrigin="0.688,0.7"                         FontSize="12"/>
         <Button x:ConnectionId='4' x:Name="NextScreenButton" Content="-&gt;" HorizontalAlignment="Left" Margin="260,25,0,0" VerticalAlignment="Top" Height="35" Width="60" RenderTransformOrigin="0.688,0.7"                      FontSize="12"/>
 
-        <ListView x:ConnectionId='5' x:Name="DeparturesListView" Margin="30,135,40,160">
+        <ListView x:ConnectionId='5' x:Name="ArrivalsListView" Margin="30,135,40,160">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid x:ConnectionId='10'                        Background="Transparent" VerticalAlignment="Stretch">
