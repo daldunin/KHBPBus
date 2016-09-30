@@ -47,15 +47,15 @@ namespace KHBPbus
             this.Frame.Navigate(typeof(AddShuttle));
         }
 
-        private List<Shuttle> SearchForShuttles()
+        private List<Shuttle> SearchForShuttles(string busStop, string day)
         {
             List<Shuttle> found = new List<Shuttle>();
-            if (BusStopComboBox.SelectionBoxItem != null && DayComboBox.SelectionBoxItem != null)
+            if (busStop != "" && day != "")
                 foreach (Shuttle departure in Schedule.Departures)
                 {
-                    if (departure.Direction == "From KHBP" && departure.BusStop == BusStopComboBox.SelectionBoxItem.ToString())
+                    if (departure.Direction == "From KHBP" && departure.BusStop == busStop)
                     {
-                        if (departure.isActiveOnDay(DayComboBox.SelectionBoxItem.ToString()))
+                        if (departure.isActiveOnDay(day))
                             found.Add(departure);
                     }
                 }
@@ -79,12 +79,24 @@ namespace KHBPbus
 
         private void DayComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ShowFoundShuttles(SearchForShuttles());
+            if (BusStopComboBox != null)
+            {
+                var day = (sender as ComboBox).SelectedValue as ComboBoxItem;
+                var busStop = (BusStopComboBox as ComboBox).SelectedValue as ComboBoxItem;
+
+                ShowFoundShuttles(SearchForShuttles(busStop.Content.ToString(), day.Content.ToString()));
+            }
         }
 
         private void BusStopComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ShowFoundShuttles(SearchForShuttles());
+            if (DayComboBox != null)
+            {
+                var day = (DayComboBox as ComboBox).SelectedValue as ComboBoxItem;
+                var busStop = (sender as ComboBox).SelectedValue as ComboBoxItem;
+
+                ShowFoundShuttles(SearchForShuttles(busStop.Content.ToString(), day.Content.ToString()));
+            }
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -102,7 +114,7 @@ namespace KHBPbus
             }
             Schedule.Departures = JSONTools.ListOfArrivals;
 
-            ShowFoundShuttles(SearchForShuttles());
+            ShowFoundShuttles(SearchForShuttles(BusStopComboBox.SelectionBoxItem.ToString(),DayComboBox.SelectionBoxItem.ToString()));
         }
 
         private void EditClick(object sender, RoutedEventArgs e)
