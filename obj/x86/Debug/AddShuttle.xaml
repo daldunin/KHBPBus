@@ -28,7 +28,7 @@
         <Button x:ConnectionId='15' x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Margin="200,450,0,0" VerticalAlignment="Top" Width="130"                          />
         <TextBlock x:ConnectionId='16' x:Name="textBlock" HorizontalAlignment="Left" Margin="200,355,0,0" TextWrapping="Wrap" Text="Direction" VerticalAlignment="Top" FontWeight="Bold"/>
         <ComboBox x:ConnectionId='17' x:Name="DirectionComboBox" HorizontalAlignment="Left" Margin="200,385,0,0" VerticalAlignment="Top" Width="130" Height="35" SelectedIndex="0">
-            <ComboBoxItem Content="To KHPB"/>
+            <ComboBoxItem Content="To KHBP"/>
             <ComboBoxItem Content="From KHBP"/>
         </ComboBox>
     </Grid>

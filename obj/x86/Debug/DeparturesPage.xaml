@@ -7,19 +7,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+
     <Grid x:ConnectionId='1' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"                     >
         <TextBlock x:ConnectionId='2' x:Name="ArrivalsHeaderText" HorizontalAlignment="Left" Margin="30,25,0,0" TextWrapping="Wrap" Text="Shuttles from KHBP" VerticalAlignment="Top" Height="30" Width="225" FontSize="24" FontWeight="Bold"/>
-        <Button x:ConnectionId='3' x:Name="AddButton" Content="Add Shuttle" HorizontalAlignment="Left" Margin="25,500,0,0" VerticalAlignment="Top" Height="50" Width="305" RenderTransformOrigin="0.688,0.7"                         FontSize="12"/>
+        <Button x:ConnectionId='3' x:Name="AddButton" Content="Add Shuttle" HorizontalAlignment="Left" Margin="30,500,0,0" VerticalAlignment="Top" Height="50" Width="290" RenderTransformOrigin="0.688,0.7"                         FontSize="12"/>
         <Button x:ConnectionId='4' x:Name="NextScreenButton" Content="-&gt;" HorizontalAlignment="Left" Margin="260,25,0,0" VerticalAlignment="Top" Height="35" Width="60" RenderTransformOrigin="0.688,0.7"                      FontSize="12"/>
-        <GridView x:ConnectionId='5' x:Name="DeparturesGridView" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Width="300" Height="365">
-            <FlyoutBase.AttachedFlyout>
-                <MenuFlyout>
-                    <MenuFlyoutItem x:ConnectionId='10' x:Name="Edit"  Text="Edit"                  />
-                    <MenuFlyoutItem x:ConnectionId='11' x:Name="Remove" Text="Remove"                    />
-                </MenuFlyout>
-            </FlyoutBase.AttachedFlyout>
-        </GridView>
-        <ComboBox x:ConnectionId='6' x:Name="BusStopComboBox" HorizontalAlignment="Left" Margin="50,68,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"                                                    >
+
+        <ListView x:ConnectionId='5' x:Name="DeparturesListView" Margin="30,135,40,160">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid x:ConnectionId='10'                        Background="Transparent" VerticalAlignment="Stretch">
+                        <FlyoutBase.AttachedFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem x:ConnectionId='11' x:Name="EditButton" Background="Transparent" Text="Edit"                  />
+                                <MenuFlyoutItem x:ConnectionId='12' x:Name="RemoveButton" Background="Transparent" Text="Remove"                    />
+                            </MenuFlyout>
+                        </FlyoutBase.AttachedFlyout>
+                        <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ComboBox x:ConnectionId='6' x:Name="BusStopComboBox" HorizontalAlignment="Left" Margin="66,68,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"                                                    >
             <ComboBoxItem Content="Polejaevskaya"/>
             <ComboBoxItem Content="Sokol"/>
         </ComboBox>

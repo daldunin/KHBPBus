@@ -7,22 +7,50 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Grid_Loaded">
         <TextBlock x:Name="ArrivalsHeaderText" HorizontalAlignment="Left" Margin="30,25,0,0" TextWrapping="Wrap" Text="Shuttles to KHBP" VerticalAlignment="Top" Height="30" Width="225" FontSize="24" FontWeight="Bold"/>
-        <TextBlock x:Name="BuildingOneHeaderText" HorizontalAlignment="Left" Margin="30,65,0,0" TextWrapping="Wrap" Text="Building 1" VerticalAlignment="Top" Height="30" Width="95" FontSize="16" FontWeight="Bold"/>
-        <TextBlock x:Name="BuildingThreeHeaderText" HorizontalAlignment="Left" Margin="135,65,0,0" TextWrapping="Wrap" Text="Building 3" VerticalAlignment="Top" Height="30" Width="95" FontWeight="Bold"/>
-        <TextBlock x:Name="SokolHeaderText" HorizontalAlignment="Left" Margin="240,65,-5,0" TextWrapping="Wrap" Text="Sokol" VerticalAlignment="Top" Height="30" Width="125" RenderTransformOrigin="2.684,1.667" FontSize="16" FontWeight="Bold"/>
-        <TextBlock x:Name="B1FirstArrivalText" HorizontalAlignment="Left" Margin="30,105,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="B1SecondArrivalText" HorizontalAlignment="Left" Margin="30,135,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="B1ThirdArrivalText" HorizontalAlignment="Left" Margin="30,165,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="B2FirstArrivalText" HorizontalAlignment="Left" Margin="135,105,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="B2SecondArrivalText" HorizontalAlignment="Left" Margin="135,135,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="B2ThirdArrivalText" HorizontalAlignment="Left" Margin="135,165,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="SFirstArrivalText" HorizontalAlignment="Left" Margin="240,105,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="SSecondArrivalText" HorizontalAlignment="Left" Margin="240,135,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="SThirdArrivalText" HorizontalAlignment="Left" Margin="240,165,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <Button x:Name="AddButton" Content="Add Shuttle" HorizontalAlignment="Left" Margin="25,500,0,0" VerticalAlignment="Top" Height="50" Width="305" RenderTransformOrigin="0.688,0.7" FontSize="12" Click="AddButton_Click"/>
+        <Button x:Name="AddButton" Content="Add Shuttle" HorizontalAlignment="Left" Margin="30,500,0,0" VerticalAlignment="Top" Height="50" Width="290" RenderTransformOrigin="0.688,0.7" Click="AddButton_Click" FontSize="12"/>
         <Button x:Name="NextScreenButton" Content="-&gt;" HorizontalAlignment="Left" Margin="260,25,0,0" VerticalAlignment="Top" Height="35" Width="60" RenderTransformOrigin="0.688,0.7" Click="button_Click" FontSize="12"/>
+
+        <ListView x:Name="DeparturesListView" Margin="30,135,40,160">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Holding="Grid_Holding" Background="Transparent" VerticalAlignment="Stretch">
+                        <FlyoutBase.AttachedFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem x:Name="EditButton" Background="Transparent" Text="Edit" Click="EditClick"/>
+                                <MenuFlyoutItem x:Name="RemoveButton" Background="Transparent" Text="Remove" Click="RemoveClick"/>
+                            </MenuFlyout>
+                        </FlyoutBase.AttachedFlyout>
+                        <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+
+        <ComboBox x:Name="BusStopComboBox" HorizontalAlignment="Left" Margin="66,68,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" SelectionChanged="BusStopComboBox_SelectionChanged">
+            <ComboBoxItem Content="Polejaevskaya"/>
+            <ComboBoxItem Content="Sokol"/>
+        </ComboBox>
+
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="30,75,0,0" TextWrapping="Wrap" Text="From" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="190,75,0,0" TextWrapping="Wrap" Text="On" VerticalAlignment="Top"/>
+        <ComboBox x:Name="DayComboBox" HorizontalAlignment="Left" Margin="215,68,0,0" VerticalAlignment="Top" Width="105" SelectedIndex="0" SelectionChanged="DayComboBox_SelectionChanged">
+            <ComboBoxItem Content="Today"/>
+            <ComboBoxItem Content="Monday"/>
+            <ComboBoxItem Content="Tuesday"/>
+            <ComboBoxItem Content="Wednesday"/>
+            <ComboBoxItem Content="Thursday"/>
+            <ComboBoxItem Content="Friday"/>
+            <ComboBoxItem Content="Saturday"/>
+            <ComboBoxItem Content="Sunday"/>
+            <ComboBoxItem/>
+        </ComboBox>
+
 
     </Grid>
 </Page>

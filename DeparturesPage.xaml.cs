@@ -64,7 +64,7 @@ namespace KHBPbus
 
         private void ShowFoundShuttles(List<Shuttle> departuresToShow)
         {
-            DeparturesGridView.Items.Clear();
+            DeparturesListView.Items.Clear();
             IEnumerable<Shuttle> sortedDepartures =
                 from departure in departuresToShow
                 orderby departure.Time // "ascending" is default
@@ -73,7 +73,7 @@ namespace KHBPbus
             //departuresToShow.OrderBy(shuttle => shuttle);
             foreach (Shuttle departure in sortedDepartures)
             {
-                DeparturesGridView.Items.Add(departure.Time.ToString(@"hh\:mm"));
+                DeparturesListView.Items.Add(departure.Time.ToString(@"hh\:mm"));
             }
         }
 
@@ -91,7 +91,15 @@ namespace KHBPbus
         {
             JSONTools.ListOfArrivals = Schedule.Departures;
             JSONTools.FileName = Schedule.departuresFileName;
-            await JSONTools.deserializeJsonAsync();
+            try
+            {
+                await JSONTools.deserializeJsonAsync();
+            }
+            catch
+            {
+                var dialog = new MessageDialog("No Schedule found.");
+                await dialog.ShowAsync();
+            }
             Schedule.Departures = JSONTools.ListOfArrivals;
 
             ShowFoundShuttles(SearchForShuttles());
@@ -130,6 +138,15 @@ namespace KHBPbus
             {
 
             }
+        }
+
+        private void Grid_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            FrameworkElement senderElement = sender as FrameworkElement;
+            // If you need the clicked element:
+            // Item whichOne = senderElement.DataContext as Item;
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(senderElement);
+            flyoutBase.ShowAt(senderElement);
         }
     }
 }

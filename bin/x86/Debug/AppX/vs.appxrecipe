@@ -22,13 +22,13 @@
     <AppXManifest Include="D:\Work\KHBPbus\KHBPbus\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-09-29T20:24:50.063</Modified>
+      <Modified>2016-09-30T00:11:35.123</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Work\KHBPbus\KHBPbus\bin\x86\Debug\KHBPbus.exe">
       <PackagePath>entrypoint\KHBPbus.exe</PackagePath>
-      <Modified>2016-09-29T20:24:49.377</Modified>
+      <Modified>2016-09-30T00:11:34.503</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\daald\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -502,7 +502,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Work\KHBPbus\KHBPbus\bin\x86\Debug\KHBPbus.xr.xml">
       <PackagePath>KHBPbus.xr.xml</PackagePath>
-      <Modified>2016-09-29T20:24:49.193</Modified>
+      <Modified>2016-09-30T00:03:39.359</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -510,11 +510,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Work\KHBPbus\KHBPbus\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-09-29T20:24:49.833</Modified>
+      <Modified>2016-09-30T00:11:34.973</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Work\KHBPbus\KHBPbus\bin\x86\Debug\Core\KHBPbus.exe">
       <PackagePath>KHBPbus.exe</PackagePath>
-      <Modified>2016-09-29T20:24:50.063</Modified>
+      <Modified>2016-09-30T00:11:35.122</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

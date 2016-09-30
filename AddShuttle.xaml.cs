@@ -54,7 +54,7 @@ namespace KHBPbus
             if (SundayCheckBox.IsChecked == true)
                 days.Add(SundayCheckBox.Content.ToString());
 
-            if (DirectionComboBox.SelectionBoxItem.ToString() == "To KHPB")
+            if (DirectionComboBox.SelectionBoxItem.ToString() == "To KHBP")
                 foreach (Shuttle sh in Schedule.Arrivals)
                 {
                     if (Enumerable.SequenceEqual(sh.Days.OrderBy(t => t), days.OrderBy(t => t)) &&
