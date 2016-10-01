@@ -67,6 +67,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="ContainerContentChanging" />
+      <RootEvent Name="Loaded" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />

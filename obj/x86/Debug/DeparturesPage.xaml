@@ -20,7 +20,10 @@
                         <FlyoutBase.AttachedFlyout>
                             <MenuFlyout>
                                 <MenuFlyoutItem x:ConnectionId='11' x:Name="EditButton" Background="Transparent" Text="Edit"                  />
+                                <MenuFlyoutSeparator/>
                                 <MenuFlyoutItem x:ConnectionId='12' x:Name="RemoveButton" Background="Transparent" Text="Remove"                    />
+                                <MenuFlyoutSeparator/>
+                                <MenuFlyoutItem x:ConnectionId='13' x:Name="AddSingleNotificationButton" Background="Transparent" Text="Notify once"                    />
                             </MenuFlyout>
                         </FlyoutBase.AttachedFlyout>
                         <TextBlock Text="{Binding}" VerticalAlignment="Center"/>

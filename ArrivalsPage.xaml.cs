@@ -1,27 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
-using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Storage;
-using Windows.Storage.Streams;
-using Windows.UI.Core;
+using Windows.UI;
 using Windows.UI.Popups;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -81,6 +67,8 @@ namespace KHBPbus
             {
                 ArrivalsListView.Items.Add(arrival.Time.ToString(@"hh\:mm"));
             }
+
+            markOutdatedShuttles();
         }
 
         private void DayComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -152,6 +140,38 @@ namespace KHBPbus
             // Item whichOne = senderElement.DataContext as Item;
             FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(senderElement);
             flyoutBase.ShowAt(senderElement);
+        }
+
+        private void markOutdatedShuttles()
+        {
+            try
+            {
+                if (DayComboBox != null)
+                {
+                    var day = (DayComboBox as ComboBox).SelectedValue as ComboBoxItem;
+                    if (day.Content.ToString() == "Today" || day.Content.ToString() == DateTime.Now.DayOfWeek.ToString())
+                    {
+                        for (int i = 0; i < ArrivalsListView.Items.Count; i++)
+                     //   foreach (ListViewItem item in ArrivalsListView.Items)
+                        {
+                            ListViewItem item = ArrivalsListView.Items[i] as ListViewItem;
+                            TimeSpan itemTime = TimeSpan.Parse(item.Content.ToString());
+                            if (DateTime.Now.TimeOfDay > itemTime)
+                            {
+                                // light grey
+                                Color outdatedColor = Color.FromArgb(255, 150, 150, 150);
+                                SolidColorBrush brush = new SolidColorBrush(outdatedColor);
+                                //listItem.Background = brush;
+                                item.Foreground = brush;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+            }
         }
     }
 }

@@ -85,6 +85,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="KHBPbus.ArrivalPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutSeparator" />
     <RootType FullName="KHBPbus.DeparturePage" />
     <RootType FullName="KHBPbus.EditShuttle" />
   </Roots.RootTypes>
