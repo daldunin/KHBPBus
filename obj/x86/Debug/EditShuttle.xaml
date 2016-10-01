@@ -12,14 +12,14 @@
         <TextBlock x:ConnectionId='2' x:Name="PickTimeText" HorizontalAlignment="Left" Margin="30,90,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <TextBlock x:ConnectionId='3' x:Name="PickDaysText" HorizontalAlignment="Left" Margin="30,190,0,0" TextWrapping="Wrap" Text="Days" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <TextBlock x:ConnectionId='4' x:Name="PickBusStopText" HorizontalAlignment="Left" Margin="30,355,0,0" TextWrapping="Wrap" Text="Bus Stop" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TimePicker x:ConnectionId='5' x:Name="ArrivalTimePicker" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top"/>
+        <TimePicker x:ConnectionId='5' x:Name="ArrivalTimePicker" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Width="300"/>
         <CheckBox x:ConnectionId='6' x:Name="MondayCheckBox" Content="Monday" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
         <CheckBox x:ConnectionId='7' x:Name="TuesdayCheckBox" Content="Tuesday" HorizontalAlignment="Left" Margin="30,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
         <CheckBox x:ConnectionId='8' x:Name="WednesdeyCheckBox" Content="Wednesday" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
         <CheckBox x:ConnectionId='9' x:Name="ThursdayCheckBox" Content="Thursday" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
-        <CheckBox x:ConnectionId='10' x:Name="FridayCheckBox" Content="Friday" HorizontalAlignment="Left" Margin="175,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
-        <CheckBox x:ConnectionId='11' x:Name="SaturdayCheckBox" Content="Saturday" HorizontalAlignment="Left" Margin="175,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094"/>
-        <CheckBox x:ConnectionId='12' x:Name="SundayCheckBox" Content="Sunday" HorizontalAlignment="Left" Margin="175,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094"/>
+        <CheckBox x:ConnectionId='10' x:Name="FridayCheckBox" Content="Friday" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094" IsChecked="True"/>
+        <CheckBox x:ConnectionId='11' x:Name="SaturdayCheckBox" Content="Saturday" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094"/>
+        <CheckBox x:ConnectionId='12' x:Name="SundayCheckBox" Content="Sunday" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.667,-1.094"/>
         <ComboBox x:ConnectionId='13' x:Name="BusStopComboBox" HorizontalAlignment="Left" Margin="30,385,0,0" VerticalAlignment="Top" Width="130" Height="35" SelectedIndex="0">
             <ComboBoxItem Content="Polejaevskaya"/>
             <ComboBoxItem Content="Sokol"/>
