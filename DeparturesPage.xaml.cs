@@ -66,13 +66,13 @@ namespace KHBPbus
             //departuresToShow.OrderBy(shuttle => shuttle);
             foreach (Shuttle departure in sortedDepartures)
             {
-                //DeparturesListView.Items.Add(departure.Time.ToString(@"hh\:mm"));
+                DeparturesListView.Items.Add(departure.Time.ToString(@"hh\:mm"));
                 
-                
+                /*
                 ListViewItem listItem = new ListViewItem();
                 listItem.Content = departure.Time.ToString(@"hh\:mm");
                 DeparturesListView.Items.Add(listItem);
-                
+                */
             }
 
             markOutdatedShuttles();
@@ -128,14 +128,17 @@ namespace KHBPbus
             await dialog.ShowAsync();
         }
 
-        private void NotifyClick(object sender, RoutedEventArgs e)
+        private async void NotifyClick(object sender, RoutedEventArgs e)
         {
-            MenuFlyoutItem menuItem = sender as MenuFlyoutItem;
-            string departureTime = menuItem.DataContext.ToString();
-            TimeSpan departureTimeSpan = TimeSpan.Parse(departureTime);
-            TimeSpan notificationTimeSpan = departureTimeSpan.Subtract(TimeSpan.FromMinutes(15));
+            var day = (DayComboBox as ComboBox).SelectedValue as ComboBoxItem;
+            if (day.Content.ToString() == "Today" || day.Content.ToString() == DateTime.UtcNow.DayOfWeek.ToString())
+            {
+                MenuFlyoutItem menuItem = sender as MenuFlyoutItem;
+                string departureTime = menuItem.DataContext.ToString();
+                TimeSpan departureTimeSpan = TimeSpan.Parse(departureTime);
+                TimeSpan notificationTimeSpan = departureTimeSpan.Subtract(TimeSpan.FromMinutes(15));
 
-            string xml = @"<toast>
+                string xml = @"<toast>
                     <visual>
                     <binding template=""ToastGeneric"">
                         <text>Shuttle leaves in 15 minutes!</text>
@@ -144,12 +147,18 @@ namespace KHBPbus
                     </visual>
                 </toast>";
 
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(xml);
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(xml);
 
-            ScheduledToastNotification toast = 
-                new ScheduledToastNotification(doc, DateTimeOffset.Parse(notificationTimeSpan.ToString()));
-            ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
+                ScheduledToastNotification toast =
+                    new ScheduledToastNotification(doc, DateTimeOffset.Parse(notificationTimeSpan.ToString()));
+                ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
+            }
+            else
+            {
+                MessageDialog dialog = new MessageDialog("You can set Notifications only for today's Shuttles.");
+                await dialog.ShowAsync();
+            }
         }
 
         private void CommandInvokedHandler(IUICommand command)
