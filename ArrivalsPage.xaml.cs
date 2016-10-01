@@ -149,14 +149,14 @@ namespace KHBPbus
                 if (DayComboBox != null)
                 {
                     var day = (DayComboBox as ComboBox).SelectedValue as ComboBoxItem;
-                    if (day.Content.ToString() == "Today" || day.Content.ToString() == DateTime.Now.DayOfWeek.ToString())
+                    if (day.Content.ToString() == "Today" || day.Content.ToString() == DateTime.UtcNow.DayOfWeek.ToString())
                     {
                         for (int i = 0; i < ArrivalsListView.Items.Count; i++)
                      //   foreach (ListViewItem item in ArrivalsListView.Items)
                         {
                             ListViewItem item = ArrivalsListView.Items[i] as ListViewItem;
                             TimeSpan itemTime = TimeSpan.Parse(item.Content.ToString());
-                            if (DateTime.Now.TimeOfDay > itemTime)
+                            if (DateTime.UtcNow.TimeOfDay > itemTime)
                             {
                                 // light grey
                                 Color outdatedColor = Color.FromArgb(255, 150, 150, 150);
